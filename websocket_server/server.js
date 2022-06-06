@@ -23,7 +23,7 @@ websocket.on("request", request => {
     connection.on("message", message =>{
         console.log(`Message received from websocket is ${message.utf8Data}`)
         connection.send(`Message received : ${message.utf8Data}`)
-    }
+    })
     periodic_fn();
 
 })
