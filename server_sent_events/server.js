@@ -1,4 +1,6 @@
 const app = require('express')();
+const port = process.env.PORT || 8080
+const server = process.env.SERVER_NAME || "admin"
 
 app.get("/", ( req, res )=>{
     res.send("Server root")
@@ -10,9 +12,6 @@ app.get("/stream", ( req, res ) =>{
     )
     periodic_fn(res);
 })
-
-const port = process.env.PORT || 8080
-const server = process.env.SERVER_NAME || "admin"
 
 function periodic_fn(res){
     res.send(`SSE Event - ${Date.now()}`)
